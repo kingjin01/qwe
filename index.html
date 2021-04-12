@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    
+    <header>
+        <div class="heder-items">
+
+            <div class="location">
+                <span><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> 매장찾기</a></span>
+            </div>
+
+            <div class="logo">
+                <img src="data:image/png;base64,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" alt="입생로랑">
+            </div>
+
+            <div class="information">
+                <ul>
+                    <li><a href="#">내 계정</a></li>
+                    <li><a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i> 내 장바구니<span class="list"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="navigation">
+            <ul>
+                <li><a href="#">WHAT'S NEW</a></li>
+                <li><a href="#">공식몰 혜택</a></li>
+                <li><a href="#">베스트셀러</a></li>
+                <li><a href="#">메이크업</a></li>
+                <li><a href="#">스킨케어</a></li>
+                <li><a href="#">향수</a></li>
+                <li><a href="#">신제품</a></li>
+                <li><a href="#">멤버쉽 프로그램</a></li>
+            </ul>
+        </div>
+        <div class="serch">
+            <form accept="">
+                <input type="text" class="serch-bar" placeholder="회원 첫구매시 15% 할인 혜택">
+                <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+            </form>
+        </div>
+    </nav>
+
+    <div class="imgslider">
+        <div class="slider">
+            <img src="https://contents.lotteon.com/display/dshoplnk/20590/7/M000076/3939/P35D7C08B07182BF6B21F5284B812B0CED6A5FE0A4927A34FE107385E3FAAE875/file" alt="">
+            <div class="ft">
+                <span>NEW</span>
+                <h2>스모키 에디션</h2>
+                <p>입생로랑 2021 첫 리미티드</p>
+                <button>자세히보기</button>
+            </div>
+        </div>
+        <div class="slider">
+            <img src="https://image-ie.s3.eu-west-1.amazonaws.com/uploads/2019/11/04190617/EFNdmwkVAAA9dzN-e1572972021453.jpg" alt="">
+            <div class="ft ft-white">
+                <span>NEW</span>
+                <h2>루쮸 쀠르 꾸뛰르</h2>
+                <p>입생로랑의 아이코닉 립스틱<br>
+                    YSL 헤리티지에서 영감받은<br>
+                    새로운 6가지 감각적인 컬러</p>
+                <button>자세히보기</button>
+            </div>
+        </div>
+        <div class="slider">
+            <img src="https://img.kingpowerclick.com/cdn-cgi/image/format=auto/kingpower-com/image/upload/w_640,h_640,f_auto/v1578393993/prod/870547-L2_1578394018869.jpg" alt="">
+            <div class="ft">
+                <span>NEW</span>
+                <h2>퓨어샷 나이트 리부트 세럼</h2>
+                <p>재구매율 1위 퓨어샷*<br>
+                나이트 리부트 세럼 대용량 출시</p>
+                <button>자세히보기</button>
+                <span class="detail">*입생로랑 퓨어샷 2020.01 ~ 2020.12.1년 재규매율.<br>
+                브랜드 내 1위 프렌차이즈</span>
+            </div>
+        </div>
+        <div class="slider">
+            <img src="https://image.hmall.com/static/4/1/04/24/2124041429_0.jpg?RS=300x300&AR=0" alt="">
+            <div class="ft ft-white">
+                <span>NEW</span>
+                <h2>와이 르 퍼퓸</h2>
+                <p>자유롭고 진취적인 남성을 위한<br>
+                    입생로랑의 새로운 남성 향수</p>
+                <button>자세히보기</button>
+            </div>
+        </div>
+    </div>
+    <div class="backbtn" onclick="plusSlides(-1)">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </div>
+    <div class="nextbtn" onclick="plusSlides(1)">
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </div>
+
+
+    <div class="good-ft">
+        <h1>입생로랑 뷰티 추천 상품</h1>
+        <ul>
+            <li class="active" id="face">페이스 메이크업</li>
+            <li id="lip">립 메이크업</li>
+            <li id="smell">향수</li>
+        </ul>
+    </div>
+
+    
+    <div class="all">
+        <div class="good-items active" id="good-items1">
+
+        <div class="goods">
+
+            <div class="left">
+                <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-kr-Library/ko_KR/dwe79a00f7/homepage/hm_favorite/face-makeup/Main_middlebanner_marblepack.jpg?sw=500&sh=300&sm=cut&q=70">
+                <div class="box">
+                    <h4>입생로랑의 새로운 혁명</h4>
+                    <h4>NEW 마블 팩트</h4>
+                    <p>매끈한 피부결과 완벽한 커버, 가볍게 밀착하여<br>
+                        산뜻하고 편안한 피니쉬를 선사하는 신개념 팩트 파운데이션</p>
+                        <a href="#">더 자세히 보기</a>
+                </div>
+            </div>
+
+            <div class="rigt">
+                <div class="img-box">
+                    <h4>NEW</h4>
+                    <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw15c147ca/Makeup/Face/TE%20Cream/3614272473829_TOUCHE_ECLAT_LE_TEINT_CREME_B20.jpg?sw=202&sh=267&sm=fit&q=70">
+                    <div class="color">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473829_TOUCHE_ECLAT_LE_TEINT_CREME_B20_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473799_TOUCHE_ECLAT_LE_TEINT_CREME_B10_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473805_TOUCHE_ECLAT_LE_TEINT_CREME_B25_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473843_TOUCHE_ECLAT_LE_TEINT_CREME_B30_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473850_TOUCHE_ECLAT_LE_TEINT_CREME_B40_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473812_TOUCHE_ECLAT_LE_TEINT_CREME_BR10_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473836_TOUCHE_ECLAT_LE_TEINT_CREME_BR20_s.jpg?sw=29&sh=29&q=70">
+                    </div>
+                    <span>7 쉐이드</span>
+                    <h3>뚜쉬 에끌라 르떙 크림</h3>
+                    <p>르떙 크림 파운데이션</p>
+                    <div class="price-hart">
+                        <div class="hart">
+                            <i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i>
+                        </div>
+                       
+                        <span>80,000원</span>
+                    </div>
+
+                    <!-- <div class="backbtn2">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </div>
+                    <div class="nextbtn2">
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </div> -->
+                </div>    
+
+                <div class="img-box">
+                    <h4>BEST SELLER</h4>
+                    <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwbf26ca91/Makeup/Face/All%20Hours/3614271722676.jpg?sw=202&sh=267&sm=fit&q=70">
+                    <div class="color">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473829_TOUCHE_ECLAT_LE_TEINT_CREME_B20_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473799_TOUCHE_ECLAT_LE_TEINT_CREME_B10_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473805_TOUCHE_ECLAT_LE_TEINT_CREME_B25_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473843_TOUCHE_ECLAT_LE_TEINT_CREME_B30_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473850_TOUCHE_ECLAT_LE_TEINT_CREME_B40_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473812_TOUCHE_ECLAT_LE_TEINT_CREME_BR10_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473836_TOUCHE_ECLAT_LE_TEINT_CREME_BR20_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwba39c27e/Makeup/Face/All%20Hours/3614271722140_swatch.png?sw=29&sh=29&q=70" alt="">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwba39c27e/Makeup/Face/All%20Hours/3614271722751_swatch.png?sw=29&sh=29&q=70" alt="">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwc4ed94b7/Makeup/Face/All%20Hours/3614272651265_ALL-HOURS-FDT-INTER-BR25-swatch.jpg?sw=29&sh=29&q=70" alt="">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwba39c27e/Makeup/Face/All%20Hours/3614271722690_swatch.png?sw=29&sh=29&q=70" alt="">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dw6b96dbd5/Makeup/Face/All%20Hours/3614272651302_BR45.jpg?sw=29&sh=29&q=70" alt="">
+                    </div>
+                    <span>10 쉐이드</span>
+                    <h3>뚜쉬 에끌라 르떙 크림</h3>
+                    <p>르떙 크림 파운데이션</p>
+                    <div class="price-hart">
+                        <div class="hart">
+                            <i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i>
+                        </div>
+                        <span>80,000원</span>
+                    </div>
+
+                    <!-- <div class="backbtn2">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </div>
+                    <div class="nextbtn2">
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </div> -->
+                </div>   
+
+                <div class="img-box">
+                    <h4>NEW</h4>
+                    <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw2f8b84f5/Makeup/Face/Le_Cushion_Reno/EAN-KR/4935421738668.jpg?sw=202&sh=267&sm=fit&q=70">
+                    <div class="color">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473829_TOUCHE_ECLAT_LE_TEINT_CREME_B20_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473799_TOUCHE_ECLAT_LE_TEINT_CREME_B10_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473805_TOUCHE_ECLAT_LE_TEINT_CREME_B25_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473843_TOUCHE_ECLAT_LE_TEINT_CREME_B30_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473850_TOUCHE_ECLAT_LE_TEINT_CREME_B40_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473812_TOUCHE_ECLAT_LE_TEINT_CREME_BR10_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473836_TOUCHE_ECLAT_LE_TEINT_CREME_BR20_s.jpg?sw=29&sh=29&q=70">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwee5b68a8/Makeup/Face/Le_Cushion_Reno/4935421738712/40SWATCH.jpg?sw=29&sh=29&q=70" alt="">
+                    </div>
+                    <span>8 쉐이드</span>
+                    <h3>뚜쉬 에끌라 르떙 크림</h3>
+                    <p>르떙 크림 파운데이션</p>
+                    <div class="price-hart">
+                        <div class="hart">
+                            <i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart black" aria-hidden="true"></i>
+                        </div>
+                        <span>80,000원</span>
+                    </div>
+
+                    <!-- <div class="backbtn2">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </div>
+                    <div class="nextbtn2">
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </div>  -->
+                </div>  
+                 
+            </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="good-items" id="good-items2">
+            <div class="goods">
+    
+                <div class="left">
+                    <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-kr-Library/ko_KR/dwfc9a2348/homepage/hm_favorite/lip-makeup/Main_middlebanner_lip.jpg?sw=500&sh=300&sm=cut&q=70">
+                    <div class="box">
+                        <h4>고보습 멘팅 샤인 립스틱</h4>
+                        <h4>루쥬 볼륍떼 샤인</h4>
+                        <p>NO.1 입생로랑 립스틱, 루쥬 볼륍떼 샤인<br>
+                            6가지 NEW 버닝 칠리 컬러를 만나보세요.</p>
+                            <a href="#">더 자세히 보기</a>
+                    </div>
+                </div>
+    
+                <div class="rigt">
+                    <div class="img-box img-box1">
+                        <h4>NEW</h4>
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw081484df/Makeup/Lips/Tatouage%20Couture/VELVET%20CREAM/WW-50582YSL_3614272942608_211.jpg?sw=202&sh=267&sm=fit&q=70" style="margin-top: 64px;">
+                        <div class="color">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473829_TOUCHE_ECLAT_LE_TEINT_CREME_B20_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473799_TOUCHE_ECLAT_LE_TEINT_CREME_B10_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473805_TOUCHE_ECLAT_LE_TEINT_CREME_B25_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473843_TOUCHE_ECLAT_LE_TEINT_CREME_B30_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473850_TOUCHE_ECLAT_LE_TEINT_CREME_B40_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473812_TOUCHE_ECLAT_LE_TEINT_CREME_BR10_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473836_TOUCHE_ECLAT_LE_TEINT_CREME_BR20_s.jpg?sw=29&sh=29&q=70">
+                        </div>
+                        <span>10 쉐이드</span>
+                        <h3>따뚜아쮸 꾸뛰르 벨벳 틴트</h3>
+                        <p>벨벳 틴트</p>
+                        <div class="price-hart">
+                            <div class="hart">
+                                <i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i>
+                            </div>
+                           
+                            <span>48,000원</span>
+                        </div>
+    
+                        <!-- <div class="backbtn2">
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                        </div>
+                        <div class="nextbtn2">
+                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </div> -->
+                    </div>    
+    
+                    <div class="img-box">
+                        <h4>BEST SELLER</h4>
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dw97d63697/Makeup/Lips/Tatouage%20Couture/3614272936720/3614272936720_tatouage-couture_shade-38_Chili_Spirit.jpg?sw=202&sh=267&sm=fit&q=70">
+                        <div class="color">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473829_TOUCHE_ECLAT_LE_TEINT_CREME_B20_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473799_TOUCHE_ECLAT_LE_TEINT_CREME_B10_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473805_TOUCHE_ECLAT_LE_TEINT_CREME_B25_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473843_TOUCHE_ECLAT_LE_TEINT_CREME_B30_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473850_TOUCHE_ECLAT_LE_TEINT_CREME_B40_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473812_TOUCHE_ECLAT_LE_TEINT_CREME_BR10_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473836_TOUCHE_ECLAT_LE_TEINT_CREME_BR20_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwba39c27e/Makeup/Face/All%20Hours/3614271722140_swatch.png?sw=29&sh=29&q=70" alt="">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwba39c27e/Makeup/Face/All%20Hours/3614271722751_swatch.png?sw=29&sh=29&q=70" alt="">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwc4ed94b7/Makeup/Face/All%20Hours/3614272651265_ALL-HOURS-FDT-INTER-BR25-swatch.jpg?sw=29&sh=29&q=70" alt="">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwba39c27e/Makeup/Face/All%20Hours/3614271722690_swatch.png?sw=29&sh=29&q=70" alt="">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dw6b96dbd5/Makeup/Face/All%20Hours/3614272651302_BR45.jpg?sw=29&sh=29&q=70" alt="">
+                        </div>
+                        <span>8 쉐이드</span>
+                        <h3>따뚜 아쮸 뀌뛰르</h3>
+                        <p>타투 틴트</p>
+                        <div class="price-hart">
+                            <div class="hart">
+                                <i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i>
+                            </div>
+                            <span>48,000원</span>
+                        </div>
+    
+                        <!-- <div class="backbtn2">
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                        </div>
+                        <div class="nextbtn2">
+                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </div> -->
+                    </div>   
+    
+                    <div class="img-box">
+                        <h4>NEW</h4>
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw5090047c/Makeup/Lips/Milk%20Tea%20Shop/WW-50644YSL-Rouge-Pur-Couture/3614273072922_141_rouge-pur-couture-milk-tea-shop_alt1.jpg?sw=202&sh=267&sm=fit&q=70">
+                        <div class="color">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473829_TOUCHE_ECLAT_LE_TEINT_CREME_B20_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473799_TOUCHE_ECLAT_LE_TEINT_CREME_B10_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473805_TOUCHE_ECLAT_LE_TEINT_CREME_B25_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473843_TOUCHE_ECLAT_LE_TEINT_CREME_B30_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw4222a06f/Makeup/Face/TE%20Cream/3614272473850_TOUCHE_ECLAT_LE_TEINT_CREME_B40_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473812_TOUCHE_ECLAT_LE_TEINT_CREME_BR10_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw8c53af09/Makeup/Face/TE%20Cream/3614272473836_TOUCHE_ECLAT_LE_TEINT_CREME_BR20_s.jpg?sw=29&sh=29&q=70">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwee5b68a8/Makeup/Face/Le_Cushion_Reno/4935421738712/40SWATCH.jpg?sw=29&sh=29&q=70" alt="">
+                        </div>
+                        <span>10 쉐이드</span>
+                        <h3>밀크티 컬렉션</h3>
+                        <p>12가지 인덱스 누드 컬러</p>
+                        <div class="price-hart">
+                            <div class="hart">
+                                <i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart black" aria-hidden="true"></i>
+                            </div>
+                            <span>80,000원</span>
+                        </div>
+    
+                        <!-- <div class="backbtn2">
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                        </div>
+                        <div class="nextbtn2">
+                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </div>  -->
+                    </div>  
+                     
+                </div>
+    
+    
+                </div>
+    
+            </div>
+
+
+            <div class="good-items" id="good-items3">
+        
+                <div class="goods">
+        
+                    <div class="left">
+                        <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-kr-Library/ko_KR/dw2675e973/homepage/hm_favorite/fragrance/Main_middlebanner_libre.jpg?sw=500&sh=300&sm=cut&q=70">
+                        <div class="box">
+                            <h4>새로운 자유, 리브르</h4>
+                            <p>여성들을 더 대담하고 자유롭게 할<br>
+                                입생로랑의 아이코닉 향수</p>
+                                <a href="#">더 자세히 보기</a>
+                        </div>
+                    </div>
+        
+                    <div class="rigt">
+                        <div class="img-box">
+                            <h4>NEW</h4>
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwf8ca7276/Fragrance/For%20Her/Libre/LibreIntense/3614273069540_1_RESIZE.jpg?sw=202&sh=267&sm=fit&q=70" style="margin-top: 65px;">
+                            <h3>리브르 오 드 빠르펭 인텐스</h3>
+                            <p>강렬한 플로털 향수</p>
+                            <div class="price-hart">
+                                <div class="hart">
+                                    <i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i>
+                                </div>
+                               
+                                <span>165,000원</span>
+                            </div>
+                        </div>    
+        
+                        <div class="img-box">
+                            <h4>BEST SELLER</h4>
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwf7b74e16/Fragrance/For%20Her/Libre/3614272648418_LIBRE_EDP_50ML_20.jpg?sw=202&sh=267&sm=fit&q=70">
+                            <h3>리브르 오 드 빠르펭</h3>
+                            <p>입생로랑 아이코닉 향수</p>
+                            <div class="price-hart">
+                                <div class="hart">
+                                    <i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i>
+                                </div>
+                                <span>165,000원</span>
+                            </div>
+                        </div>   
+        
+                        <div class="img-box">
+                            <h4>NEW</h4>
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-master-catalog/ko_KR/dw578009e1/Fragrance/For%20Her/Libre/3614272966987/3614272966987_libre_hand_cream_30ml.jpg?sw=202&sh=267&sm=fit&q=70">
+                            <h3>리브르 핸드 크림</h3>
+                            <p>수딩 핸드 크림</p>
+                            <div class="price-hart">
+                                <div class="hart">
+                                    <i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart black" aria-hidden="true"></i>
+                                </div>
+                                <span>45,000원</span>
+                            </div>
+                        </div>  
+                    </div>
+        
+        
+                    </div>
+        
+                </div>
+
+            </div>
+
+            <div class="focuson">
+                <img src="https://www.allkpop.com/upload/2020/07/content/280053/1595912016-image.png" alt="">
+                <div class="ft">
+                    <span>FOCUS ON</span>
+                    <h1>입생로랑 아이코닉 향수</h1>
+                    <h1>새로운 자유.LIBRE</h1>
+                    <a href="#">더 알아보기</a>
+                </div>
+            </div>
+
+
+            <div class="cagegory-items">
+                <div class="cagegoty">
+                    <h6>입새로랑 뷰티</h6>
+                    <h1>카테고리 살펴보기</h1>
+                </div>
+                <div class="category-all">
+                    <div class="cagegory-bd">
+                        <div class="img">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-kr-Library/ko_KR/dwa3bc12e9/homepage/explorer_bycategory/lip-makeup/YSL_TC_Velvet_Category.jpg?sw=305&sh=264&sm=cut&q=70" >
+                        </div>
+                        <div class="ft">
+                            <h1>립메이크업</h1>
+                            <span>과감한 컬러와 감각적인 텍스처의<br>
+                                립 메이크업 컬렉션</span>
+                            <a href="#">전체 상품보기</a>
+                        </div>
+                    </div>
+
+                    <div class="cagegory-bd">
+                        <div class="img">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-kr-Library/ko_KR/dw016bb82b/homepage/explorer_bycategory/face-makeup/YSL_NEWCushion_Category_07_v2.jpg?sw=305&sh=264&sm=cut&q=70" >
+                        </div>
+                        <div class="ft">
+                            <h1>페이스 메이크업</h1>
+                            <span>혁신적인 텍스처로 가볍고 섬세한 베이스 메<br>
+                                립 메이크업 컬렉션</span>
+                            <a href="#">전체 상품보기</a>
+                        </div>
+                    </div>
+
+                    <div class="cagegory-bd">
+                        <div class="img">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-kr-Library/ko_KR/dw41a09186/homepage/explorer_bycategory/fragrance/YSL_Libre_Category.jpg?sw=305&sh=264&sm=cut&q=70" >
+                        </div>
+                        <div class="ft">
+                            <h1>향수</h1>
+                            <span>ADDICTED TO LOVE. 입생로랑의 향수는<br>
+                                당신을 사랑으로의 여행에 초대합니다</span>
+                            <a href="#">전체 상품보기</a>
+                        </div>
+                    </div>
+
+                    <div class="cagegory-bd">
+                        <div class="img">
+                            <img src="https://www.yslbeautykr.com/dw/image/v2/AAWH_PRD/on/demandware.static/-/Sites-ysl-kr-Library/ko_KR/dw1948915b/homepage/explorer_bycategory/bestseller/YSL_engraving_Category.jpg?sw=305&sh=264&sm=cut&q=70" >
+                        </div>
+                        <div class="ft">
+                            <h1>이니셜 각인 서비스</h1>
+                            <span>베스트 립스틱에 나만의 이니셜로 특별한 경<br>
+                                험을 선물하세요</span>
+                            <a href="#">전체 상품보기</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    <script src="./Imgslider.js"></script>
+    <script src="colorslider.js"></script>
+</body>
+</html>
