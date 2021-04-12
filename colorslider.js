@@ -12,6 +12,9 @@ Face.addEventListener('click', function(){
     goodItems2.style.display = 'none';
     goodItems3.style.transform = 'translateX(100%)';
     goodItems3.style.display = 'none';
+    Face.classList.add('active')
+    Lip.classList.remove('active')
+    Smell.classList.remove('active')
 });
 
 Lip.addEventListener('click', function(){
@@ -21,6 +24,9 @@ Lip.addEventListener('click', function(){
     goodItems2.style.display = 'block';
     goodItems3.style.transform = 'translateX(100%)';
     goodItems3.style.display = 'none';
+    Lip.classList.add('active')
+    Face.classList.remove('active')
+    Smell.classList.remove('active')
 });
 
 Smell.addEventListener('click', function(){
@@ -30,4 +36,7 @@ Smell.addEventListener('click', function(){
     goodItems2.style.display = 'none';
     goodItems3.style.transform = 'translateX(0)';
     goodItems3.style.display = 'block';
+    Smell.classList.add('active')
+    Lip.classList.remove('active')
+    Face.classList.remove('active')
 });
