@@ -229,6 +229,12 @@ nav .serch i {
 }
 .good-ft ul li.active {
     color: black;
+    background-color: #c5dedd;
+    padding: 10px 0px;
+    border-radius: 30px;
+    width: 15%;
+    display: flex;
+    justify-content: center;
 }
 
 .all {
@@ -305,6 +311,14 @@ nav .serch i {
     height: 3vh;
     overflow: hidden;
     margin-left: 10px;
+    display: flex;
+}
+.goods .rigt .img-box .color img{
+    padding: 0px 5px;
+    position: absolute;
+    display: flex;
+    top: 65%;
+    left: 40%;
 }
 .goods .rigt .img-box:nth-child(2) {
     padding-top: 102px;
@@ -366,15 +380,15 @@ nav .serch i {
 
 .goods .img-box .backbtn2 {
     position: absolute;
-    top: 69.5%;
-    left: 5%;
+    top: 65.3%;
+    left: 35%;
     color: rgb(112, 112, 112);
     cursor: pointer;
 }
 .goods .img-box .nextbtn2 {
     position: absolute;
-    top: 69%;
-    right: 14%;
+    top: 65%;
+    right: 40%;
     color: rgb(112, 112, 112);
     cursor: pointer;
 }
